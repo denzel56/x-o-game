@@ -41,7 +41,6 @@ const checkWinner = () => {
     winningLines[i].forEach(item => result.push(gameState[item]));
 
     if (gameState.every(item => item !== '') && result.every(item => item !== currentPlayer)) {
-
       gameActive = false;
       gameStatus.textContent = 'Game ended in a draw!';
 
