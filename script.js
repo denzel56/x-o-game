@@ -34,19 +34,21 @@ const handlePlayerChange = () => {
 }
 
 const checkWinner = () => {
+
   for (let i = 0; i < winningLines.length; i++) {
     let result = [];
 
     winningLines[i].forEach(item => result.push(gameState[item]));
 
-    if (result.every(item => item === currentPlayer)) {
-      gameActive = false;
-      gameStatus.textContent = `Player ${currentPlayer} has won!`;
-
-      return;
-    } else if (gameState.every(item => item !== '')) {
+    if (gameState.every(item => item !== '') && result.every(item => item !== currentPlayer)) {
       gameActive = false;
       gameStatus.textContent = 'Game ended in a draw!';
+
+      return;
+
+    } else if (result.every(item => item === currentPlayer)) {
+      gameActive = false;
+      gameStatus.textContent = `Player ${currentPlayer} has won!`;
 
       return;
     }
