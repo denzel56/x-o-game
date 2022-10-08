@@ -46,8 +46,8 @@ const checkWinner = () => {
       gameStatus.textContent = 'Game ended in a draw!';
 
       return;
-    } else if (result.every(item => item === currentPlayer)) {
 
+    } else if (result.every(item => item === currentPlayer)) {
       gameActive = false;
       gameStatus.textContent = `Player ${currentPlayer} has won!`;
 
